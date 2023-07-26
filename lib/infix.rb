@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 require_relative "infix/version"
+require "ostruct"
 
 # Infix: Include this module to configure your classes
 module Infix
   def infix(&block)
-    return @infix ||= {} unless block_given?
+    return structurize(@infix ||= {}) unless block_given?
 
     @infix ||= {}
     @nest = []
@@ -35,5 +36,12 @@ module Infix
 
     tree[nest[idx]] ||= {}
     nested(tree[nest[idx]], nest, idx + 1, key, val)
+  end
+
+  def structurize(hash)
+    hash.each do |k, v|
+      hash[k] = structurize(v) if v.instance_of?(Hash)
+    end
+    OpenStruct.new(hash)
   end
 end

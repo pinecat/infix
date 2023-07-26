@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    infix (0.1.0)
+    infix (0.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -37,6 +37,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-16
+  x86_64-linux
 
 DEPENDENCIES
   infix!

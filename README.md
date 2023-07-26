@@ -7,14 +7,14 @@ Infix is a simple, drop-in DSL for configuring any Ruby class.
 In your Gemfile, place the following line:
 
 ```
-gem "infix", "~> 0.1"
+gem "infix", "~> 0.2"
 ```
 
 The run `bundle` to install.
 
 ## Usage
 
-To use Infix, simply require it, then include it in your class. You will be able to access your configuration options using the `infix` method on the class instance. Similarly, you use the `infix` method, and pass it a block, in order to set preferences.
+To use Infix, simply require it, then include it in your class. You will be able to access your configuration options using the `infix` method on the class instance (with hash indexing notation, or with OpenStruct notation). Similarly, you use the `infix` method, and pass it a block, in order to set preferences.
 
 ```ruby
 require "infix"
@@ -37,7 +37,9 @@ end
 
 puts b.infix[:type]     #=> Outputs 'european'
 puts b.infix[:carrying] #=> Outputs 'coconut'
-puts b.infix[:topspeed] #=> Outputs '24'
+
+# Also works with OpenStruct syntax
+puts b.infix.topspeed   #=> Outputs '24'
 ```
 
 You can also have nested structues inside your infix block.

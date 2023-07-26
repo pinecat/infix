@@ -24,10 +24,10 @@ class TestInfix < Minitest::Test
       end
     end
 
-    assert_equal :european, b.infix[:type]
-    assert_equal "coconut", b.infix[:carrying]
-    assert_equal 24, b.infix[:topspeed]
-    assert_equal true, b.infix[:film_references][:monty_python]
-    assert_equal "no", b.infix[:film_references][:star_wars]
+    assert_equal :european, b.infix.type
+    assert_equal "coconut", b.infix.carrying
+    assert_equal 24, b.infix.topspeed
+    assert_equal true, b.infix.film_references.monty_python
+    assert_equal "no", b.infix.film_references.star_wars
   end
 end
