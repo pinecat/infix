@@ -2,6 +2,7 @@ AllCops:
   TargetRubyVersion: 2.6
   Exclude:
     - "test/test_infix.rb"
+    - "vendor/**/*"
 
 Style/StringLiterals:
   Enabled: true
